@@ -1,0 +1,132 @@
+{% extends "prospect/layout.html" %}
+<div id="page-container">
+    {% block body %}
+        <div id="content-wrap">
+            {% for listing in listings %}
+                {% if listing.agent.contacted == False %}
+                    <div id="con" class="alert alert-success" role="alert">
+                        Agent Never been Contacted!
+                    </div>
+                {% else %}
+                    <div id="co" class="alert alert-danger" role="alert">
+                        Agent has been contacted before!
+                    </div>
+                {% endif %}
+                <div id="name">
+                    <h1 id="agent_name">{{listing.agent.name}}</h1>
+                </div>
+                <h3 id="listing_address">{{listing.address}}</h3>
+                <br></br>
+                <div class="flex-card-container">
+                    
+                    <div class="flexcard-content">
+                        {% if listing.cb == 0 %}
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div id="cbt" class="card-header">Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.cb}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% else %}
+                            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.cb}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="flexcard-content">
+                        {% if listing.interested == "MI" %}
+                            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Interest</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.interested}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% elif listing.interested == "HI" %}
+                            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.interested}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% elif listing.interested == "LI" %}
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.interested}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="flexcard-content">
+                        {% if listing.sc == 0 %}
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div id="scbt" class="card-header">Successfully Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.sc}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% else %}
+                            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Successfully Contacted Before</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{listing.sc}}</h5>
+                                </div>
+                                
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div id="edit">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div class="footer-container">
+                        <div class="footer-flex-content">
+                            <button id="footer-call" class="btn btn-warning"><a id="save">Save</a></button>
+                        </div>
+                        <div class="footer-flex-content">
+                            <button id="footer-call" class="btn btn-success"><a id="call-agent" href="tel:{{listing.agent.phone}}">Call</a></button>
+                        </div>
+                        <div class="footer-flex-content" id="pagination">
+                            <ul class='pagination'>
+                                {% if listings.has_previous %}
+                                <li class='page-item'>
+                                    <a href="?page=1" class='page-link'>First</a>
+                                </li>
+                                <li><a href="{{listings.previous_page_link}}" class='page-link'>Previous</a></li>
+                                {% endif %}
+                                {% if listings.has_next %}
+                                <li class='page-item'>
+                                    <a href="?page={{listings.next_page_number}}" class='page-link'>Next</a>
+                                </li>
+
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        </div>
+
+        
+    {% endblock %}
+</div>

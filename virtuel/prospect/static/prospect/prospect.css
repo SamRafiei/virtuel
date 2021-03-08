@@ -1,0 +1,111 @@
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+#content-wrap {
+    padding-bottom: 3rem;    /* Footer height */
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;            /* Footer height */
+  }
+#agent_name,#listing_address{
+    text-align: center;
+    font-family: 'Raleway';
+}
+#listing_address{
+    text-decoration: underline;
+
+}
+.info-card{
+    text-align: center;
+}
+.flex-card-container{
+    margin:0;
+    padding:0;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    align-content: space-between;
+    
+    
+}
+.flexcard-content{
+    
+    
+    text-align: center;
+    
+}
+.card{
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 400px;
+    height: 200px;
+    
+}
+.card-title{
+    font-size: xx-large;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.card-body{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+#call-agent{
+    
+    text-align: center;
+    color:white;
+    text-decoration: none;
+}
+.footer-container{
+    display:flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background:#1d1e22;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    
+    align-content: space-between;
+}
+.footer-flex-content{
+    
+    height: 100%;
+    width:0rem;
+    align-self: center;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    
+}
+#footer-call{
+    height:80% !important;
+    
+}
+.pagination{
+    margin:0;
+    
+}
+@media screen and (max-width: 450px) {
+    .flex-card-container{justify-content:space-around;}
+    .card {width: 100px;height:100px;margin-left:0;margin-right:0;}
+    .card-title,.card-header{font-size:10px; text-overflow: ellipsis;}
+    #scbt{font-size:7px;}
+    #cbt{font-size:8px;}
+    .card-header{height:35px;}
+    
+  }
